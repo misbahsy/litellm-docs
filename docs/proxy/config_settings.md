@@ -630,6 +630,8 @@ router_settings:
 | AWS_BEDROCK_RUNTIME_ENDPOINT | Endpoint URL for the Bedrock runtime, used when neither `api_base` nor `aws_bedrock_runtime_endpoint` is passed per request. Overrides the endpoint LiteLLM would otherwise derive from the AWS region
 | AWS_DEFAULT_REGION | Default AWS region for service interactions when AWS_REGION is not set
 | AWS_PROFILE_NAME | AWS CLI profile name to be used
+| AWS_RDS_READ_REPLICA_REGION | Signing-region override for the read-replica RDS IAM token when `IAM_TOKEN_DB_AUTH=True`. Defaults to the region in the replica's RDS hostname, then the process AWS region. Never inherits `AWS_RDS_REGION`; empty or whitespace values count as unset
+| AWS_RDS_REGION | Signing-region override for the writer RDS IAM token when `IAM_TOKEN_DB_AUTH=True`. Defaults to the region in the writer's RDS hostname, then the process AWS region. Empty or whitespace values count as unset
 | AWS_REGION | AWS region for service interactions (takes precedence over AWS_DEFAULT_REGION)
 | AWS_REGION_NAME | Default AWS region for service interactions
 | AWS_ROLE_ARN | ARN of the AWS IAM role to assume for authentication
@@ -744,6 +746,7 @@ router_settings:
 | CURSOR_API_BASE | API base URL for Cursor AI provider integration. Default is https://api.cursor.com
 | DASHSCOPE_API_BASE_IMAGE | Base URL for DashScope image generation. Default is https://dashscope-intl.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation
 | DASHSCOPE_API_BASE_RERANK | Base URL for DashScope rerank. Default is https://dashscope.aliyuncs.com/compatible-api/v1/reranks
+| DASHSCOPE_API_BASE_VIDEO | Base URL for DashScope video generation. Default is https://dashscope.aliyuncs.com
 | DATABASE_HOST | Hostname for the database server
 | DATABASE_HOST_READ_REPLICA | Hostname for the read-replica database server. Only used by the componentized deployment when `IAM_TOKEN_DB_AUTH=True` or `AZURE_POSTGRESQL_AUTH=True` to assemble `DATABASE_URL_READ_REPLICA` from the discrete database env vars
 | DATABASE_NAME | Name of the database
@@ -850,10 +853,12 @@ router_settings:
 | QWEN_AI_PLATFORM_API_BASE | Base URL for Qianwen AI Platform (mainland China). Default is https://dashscope.aliyuncs.com/compatible-mode/v1
 | QWEN_AI_PLATFORM_API_BASE_IMAGE | Base URL for Qianwen AI Platform image generation. Default is https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation
 | QWEN_AI_PLATFORM_API_BASE_RERANK | Base URL for Qianwen AI Platform rerank. Default is https://dashscope.aliyuncs.com/compatible-api/v1/reranks
+| QWEN_AI_PLATFORM_API_BASE_VIDEO | Base URL for Qianwen AI Platform video generation. Default is https://dashscope.aliyuncs.com
 | QWEN_AI_PLATFORM_API_KEY | API key for Qianwen AI Platform, read before the `DASHSCOPE_API_KEY` fallback
 | QWENCLOUD_API_BASE | Base URL for QwenCloud. Default is https://dashscope-intl.aliyuncs.com/compatible-mode/v1
 | QWENCLOUD_API_BASE_IMAGE | Base URL for QwenCloud image generation. Default is https://dashscope-intl.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation
 | QWENCLOUD_API_BASE_RERANK | Base URL for QwenCloud rerank. Default is https://dashscope-intl.aliyuncs.com/compatible-api/v1/reranks
+| QWENCLOUD_API_BASE_VIDEO | Base URL for QwenCloud video generation. Default is https://dashscope-intl.aliyuncs.com
 | QWENCLOUD_API_KEY | API key for QwenCloud, read before the `DASHSCOPE_API_KEY` fallback
 | REDIS_AZURE_AD_TOKEN | Flag enabling Azure AD authentication for Redis. Set it to `true`, not to a token. Ignored with a warning when a GCP IAM service account is configured as well. **Default is False**
 | REDUCTO_API_KEY | API key for Reducto OCR

@@ -353,7 +353,6 @@ const sidebars = {
     { type: "html", value: "Get started", className: "sidebar-caption", defaultStyle: true },
     { type: "doc", id: "index", label: "Quickstart" },
     { type: "doc", id: "agent_resources", label: "Agent resources" },
-    { type: "doc", id: "benchmarks", label: "Benchmarks" },
 
     // ════════════════════════════════════════════════════════════
     // AI GATEWAY
@@ -369,6 +368,7 @@ const sidebars = {
       items: [
         { type: "doc", id: "proxy/docker_quick_start", label: "Quickstart" },
         { type: "doc", id: "proxy/quick_start", label: "CLI Quickstart" },
+        { type: "doc", id: "benchmarks", label: "Benchmarks" },
         { type: "html", value: "Set up", className: "sidebar-group-label", defaultStyle: true },
         {
           type: "category",
@@ -763,6 +763,7 @@ const sidebars = {
       link: { type: "doc", id: "python_sdk" },
       items: [
         { type: "doc", id: "learn/sdk_quickstart", label: "Quickstart" },
+        { type: "doc", id: "litellm_core", label: "LiteLLM Core" },
         {
           type: "category",
           label: "SDK Functions",
@@ -1106,7 +1107,15 @@ const sidebars = {
         slug: "/self_hosted_coding_agents"
       },
       items: [
-        "self_hosted_coding_agents/moyai",
+        {
+          type: "category",
+          label: "Moyai",
+          link: {type: "doc", id: "self_hosted_coding_agents/moyai"},
+          items: [
+            "self_hosted_coding_agents/moyai/setup",
+            "self_hosted_coding_agents/moyai/architecture",
+          ],
+        },
       ]
     },
     { type: "html", value: "Reference", className: "sidebar-caption", defaultStyle: true },
@@ -1471,6 +1480,7 @@ const sidebars = {
           "providers/manus",
           "providers/meta",
           "providers/meta_llama",
+          "providers/microsoft_365_copilot",
           "providers/minimax",
           "providers/moonshot",
           "providers/morph",
@@ -1501,6 +1511,7 @@ const sidebars = {
           "providers/sambanova",
           "providers/sap",
           "providers/sarvam",
+          "providers/scaledown",
           "providers/scaleway",
           "providers/scx_ai",
           "providers/snowflake",
