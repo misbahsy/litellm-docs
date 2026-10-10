@@ -2516,6 +2516,21 @@ html[class*='docs-doc-id-harness/'] .breadcrumbs {
   padding-top: 4px;
 }
 
+/* Parts of the LiteLLM Gateway (className "sidebar-rail" in sidebars.js): a
+   thin rail in a faint tint of the primary color ties AI Gateway, MCP Gateway,
+   Agent Gateway and Auto Router to the LiteLLM Gateway item above them. The rail runs through
+   the spacing between items, so it reads as one continuous line. */
+.menu > .menu__list > .menu__list-item.sidebar-rail {
+  margin-top: 0;
+  /* Level-1 categories carry margin-bottom: 0.25rem !important elsewhere */
+  margin-bottom: 0 !important;
+  margin-left: 14px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  border-left: 1.5px solid color-mix(in srgb, var(--ifm-color-primary) 28%, transparent);
+}
+
 /* Status tags after a sidebar label (sidebars.js className):
    "sidebar-beta" and "sidebar-preview". */
 .sidebar-beta > .menu__link::after,
