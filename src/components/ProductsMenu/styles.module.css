@@ -43,6 +43,15 @@
   display: none;
 }
 
+/* Between the desktop breakpoint and 1200px the navbar has no room for a
+   label: the pill shows only the product icon and the chevron. The name stays
+   in the tooltip, the aria-label and the open menu. */
+@media (min-width: 997px) and (max-width: 1199px) {
+  .triggerLabel {
+    display: none;
+  }
+}
+
 @media (max-width: 1330px) {
   .triggerLabel {
     max-width: 120px;
